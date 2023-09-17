@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(40, 37, 62);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    background: repeating-conic-gradient(from var(--a),#ff2770 0%,#ff2770 5%,transparent
+    5%,transparent 40%, #ff2770 50%);
+    animation: borderAnimation 3s linear infinite;
+    border-radius: 20px;
+}
+
+@property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 50deg;
+}
+@keyframes borderAnimation {
+    0%{
+        --a:0deg;
+    }
+
+    100%{
+        --a:360deg;
+    }
+    
+}
+.box::before
+{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: repeating-conic-gradient(from var(--a),#04836b 0%,#04836b 5%,transparent
+    5%,transparent 40%, #04836b 50%);
+    animation: borderAnimation 3s linear infinite;
+    animation-delay: -.7s;
+    border-radius: 20px;
+}
+
+.box::after{
+    content: '';
+    position: absolute;
+    inset: 10px;
+    background: rgb(9, 24, 26);
+    border-radius: 20px;
+    border: 8px solid black;
+}

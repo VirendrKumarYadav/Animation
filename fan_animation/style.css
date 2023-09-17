@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background: linear-gradien(to top     #04836b) */
+}
+
+.fan {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    border: 5px solid #2d2760;
+    border-radius: 50%;
+    /* box-shadow: 10px 10px 10px 10px  #12ffff; */
+    background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
+    animation: fan_an 4s linear infinite;
+
+}
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 50deg;
+}
+
+@keyframes fan_an {
+
+    0% {
+        --a: 0deg;
+    }
+
+    100% {
+        --a: 360deg;
+    }
+
+}
+
+.fan::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* border: 5px solid rgb(37, 187, 95); */
+    border-radius: 50%;
+    background: repeating-conic-gradient(from var(--a), #2d2760 0%, #2d2760 5%, transparent 5%, transparent 40%, #2d2760 50%);
+    animation: fan_an 4s linear infinite;
+    animation-delay: -1s;
+}
+
+
+.std {
+    height: 60px;
+    width: 20px;
+    background: #2d2760;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.stand {
+
+    min-height: 100px;
+    width: 50px;
+    border-radius: 20px 20px 0px 0px;
+    background: #ff2770;
+}
+
+.foot_stand {
+
+    width: 200px;
+    height: 60px;
+    background: #2d2760;
+    border-radius: 20px 20px 0px 0px;
+}
